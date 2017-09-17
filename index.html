@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Image Editor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="styles.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <input type="file" id="myFile">
+    <hr>
+    <textarea id="textarea" style="width:300px;height: 200px" ></textarea>
+    <div id="divId" > 
+        <img id="imgId" style="width: 200px; height: 200px;"/>
+    </div>
+    <button type="button" value="save" id="save"> Save</button>    
+
+    <script>
+        var input = document.getElementById("myFile");
+        var output = document.getElementById("textarea");
+        var divi = document.getElementById('divId');
+        var imgID = document.getElementById('imgId');
+
+
+        function saveTextAsFile(filepath,)
+        {
+            var filepath = "C:\\;"
+            
+            var textToWrite = document.getElementById('textarea').value;
+            var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
+            var txtfile = new File(filepath, textFileAsBlob);
+            var fileNameToSaveAs = txtfile + "C:\ecc.txt";
+        
+            
+        }
+    
+        var button = document.getElementById('save');
+        button.addEventListener('click', saveTextAsFile);
+
+
+        input.addEventListener("change", function () {
+            if (this.files && this.files[0]) {
+                var myFile = this.files[0];
+                var reader = new FileReader();
+
+                reader.addEventListener('load', function (e) {
+                    output.textContent = e.target.result;
+                    imgID.style.backgroundImage = "url('" + e.target.result + "')";
+                    imgID.style.backgroundRepeat = "no-repeat";
+                    imgID.src = e.target.result;
+                });
+
+                reader.readAsBinaryString(myFile);
+
+            }
+
+
+        });
+    </script>
+
+
+</body>
+
+</html>

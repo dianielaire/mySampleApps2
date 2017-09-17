@@ -1,0 +1,41 @@
+.image1 {
+    background-image: url($output); 
+    
+    border-radius: 1px;
+    height: 200px;
+    width: 200px;
+    background-size: 200px 200px;
+    background-repeat: no-repeat;
+}
+body{
+    background-color: #d0d0d0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.div-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.div-card{
+    height: 400px;
+    width: 300px;
+    background-color:#fff;
+    margin-right: 20px;
+    margin-left: 20px;
+    box-shadow: black;
+}
+
+.div-desc{
+    
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.div-img{
+border: 1px solid gray;
+
+    height: 200px;
+    width: 300px;
+}
